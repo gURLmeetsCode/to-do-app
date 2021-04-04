@@ -4,6 +4,9 @@
   <% @lists.each do |list| %>
     <li>
       <%= list.name %> (<%= link_to "edit", edit_list_path(list) %>)
+      (<%= link_to "delete", list_path(list),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>)
 
       <ul>
         <% list.cards.each do |card| %>
