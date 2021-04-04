@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  get "/lists", to:lists#index"
+  root "lists#index"
+
+  # get "/lists", to: "lists#index"
+  # get 'cards/index'
+
+
+  resources :lists
+  resources :cards
+
 end
