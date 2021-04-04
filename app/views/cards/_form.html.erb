@@ -1,0 +1,24 @@
+<%= form_with model: card do |form| %>
+  <%= form.collection_select :list_id, List.order(:name), :id, :name %>
+
+
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% card.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+    <% card.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

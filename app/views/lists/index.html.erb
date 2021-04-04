@@ -3,7 +3,13 @@
 <ul>
   <% @lists.each do |list| %>
     <li>
-      <%= list.name %>
+      <%= list.name %> (<%= link_to "edit", edit_list_path(list) %>)
+
+      <ul>
+        <% list.cards.each do |card| %>
+          <li><%= link_to card.name, card_path(card) %></li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
 </ul>
